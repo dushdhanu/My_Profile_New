@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 
 export default function ProfileScreen() {
+  const [points, setPoints] = useState(0);
+
   return (
     <View style={styles.container}>
       <StatusBar style="light" />
@@ -49,14 +51,14 @@ export default function ProfileScreen() {
             <Text style={styles.fieldLabel}>Points</Text>
             <View style={styles.inlineValueContainer}>
               <MaterialIcons name="star" size={18} color="#FBC02D" style={styles.inlineIcon} />
-              <Text style={styles.fieldValue}>0</Text>
+              <Text style={styles.fieldValue}>{points}</Text>
             </View>
           </View>
         </View>
       </ScrollView>
 
       {/* FAB */}
-      <TouchableOpacity style={styles.fab} activeOpacity={0.8}>
+      <TouchableOpacity style={styles.fab} activeOpacity={0.8} onPress={() => setPoints(prev => prev + 1)}>
         <MaterialIcons name="add" size={28} color="#FFF" />
       </TouchableOpacity>
     </View>
