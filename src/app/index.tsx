@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
@@ -20,9 +20,10 @@ export default function ProfileScreen() {
         {/* Avatar Area */}
         <View style={styles.avatarSection}>
           <View style={styles.avatarContainer}>
-            <View style={styles.avatarPlaceholder}>
-              <MaterialIcons name="person" size={60} color="#ccc" />
-            </View>
+            <Image 
+              source={{ uri: 'https://i.pravatar.cc/150?img=47' }} 
+              style={styles.avatarImage} 
+            />
             <View style={styles.badgeContainer}>
               <MaterialIcons name="check-circle" size={24} color="#4CAF50" />
             </View>
@@ -96,13 +97,10 @@ const styles = StyleSheet.create({
   avatarContainer: {
     position: 'relative',
   },
-  avatarPlaceholder: {
+  avatarImage: {
     width: 120,
     height: 120,
     borderRadius: 60,
-    backgroundColor: '#E0E0E0',
-    alignItems: 'center',
-    justifyContent: 'center',
     borderWidth: 2,
     borderColor: '#EEEEEE',
   },
